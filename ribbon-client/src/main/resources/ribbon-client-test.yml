@@ -1,0 +1,27 @@
+server:
+  port: 8091
+
+
+ribbon:
+  DeploymentContextBasedVipAddresses: ribbon-server
+  ReadTimeout: 25000                   # ribbon 超时时间
+  ConnectTimeout: 25000
+  MaxAutoRetries: 2
+
+hystrix:
+  command:
+    testHystrix:                         # 方法名 设置为default对所有@HystrixCommand注解生效
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000  # 响应超时时间 默认1s
+      circuitBreaker:
+        enabled: true                     # 是否开启熔断机制
+        requestVolumeThreshold: 10       # 开始进行错误率计算最少请求数
+        sleepWindowInMilliseconds: 10000 # 断路多久后开始尝试恢复 默认为5秒
+        errorThresholdPercentage: 60     # 错误百分比 默认70%
+  threadpool:
+    default:
+      #coreSize：10                        # 线程池核心线程数 此版本已经移除
+      maxQueueSize: -1                    # 线程池阻塞队列 默认为-1:使用SynchronousQueue; 其他值：使用LinkedBlockingQueue
+      queueSizeRejectionThreshold: 5     # maxQueueSize > -1 指定队列长度；maxQueueSize = -1 无效

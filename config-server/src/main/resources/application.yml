@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: config-server
+  rabbitmq:
+    host: localhost
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/yourname/springCloudConfig  # 配置仓库位置
+          username: github username
+          password: github password
+          basedir: /Users/user/CloudConfig # 指定配置文件本地仓库
+    bus:
+      trace:
+        enabled: true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8762/eureka
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+server:
+  port: 8201
+
+# docker 启动rabbitmq
+# docker run -d -p 15672:15672 -p 5672:5672 --hostname=my-rabbitmq rabbitmq:3.7.3-management
