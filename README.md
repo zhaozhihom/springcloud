@@ -19,7 +19,7 @@ config-server: 配置中心
 ribbon-client进行了配置客户端改造
 将'ribbon-client-test.yml'拷贝到配置中心的git仓库中；
 
-## 关于hytrix熔断的配置
+## 关于hystrix熔断的配置
 在ribbon-client、feign-client配置文件中有详细的注释
 
 ## zipkin

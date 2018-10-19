@@ -25,6 +25,7 @@ target/
 /.nb-gradle/
 
 ### 子项目 ###
+.mvn/
 mvnw
 mvnw.cmd
 */.gitignore
