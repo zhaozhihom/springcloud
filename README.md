@@ -14,7 +14,7 @@ docker run -d -p 9411:9411 openzipkin/zipkin
 ```
 
 ## Demo中一些组件的配置情况
-### config-client
+### 配置中心
 config-server: 配置中心
 ribbon-client进行了配置客户端改造
 将'ribbon-client-test.yml'拷贝到配置中心的git仓库中；
